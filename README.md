@@ -10,7 +10,7 @@ O jogo será baseado no classico Freeway do Atari.
 
 #Objetivo do jogo
 
-Através uma avenida evitando ser atropelado.
+Atravessar uma avenida evitando ser atropelado.
 
 #Incrementos
 
