@@ -37,8 +37,15 @@ function start(){
 				
 			if( ($('#carro'+i).position() == undefined) == false ){
 
-				if(i> 50){fator = -2;}else{fator =1}
-
+				//muda a dificuldade de acordo com o nivel dos carros
+				posicaoTop = parseInt($('#carro'+i).position().top);
+				if(i> 50){
+					fator = -(2+ fatorAjuste(posicaoTop));
+				}else{
+					fator = 1 + fatorAjuste(posicaoTop);
+				}
+				
+				//pega a posicao do carro para movimenta lo
 				posicao = parseInt($('#carro'+i).position().left);
 
 				if( (i<51 && posicao >= 918) || (i>50 && posicao <= 16) ){
@@ -57,3 +64,22 @@ function start(){
 
 }
 
+function fatorAjuste(altura){
+
+	switch(altura){
+		case 30: return 9;break;
+		case 80: return 8;break;
+		case 130: return 7;break;
+		case 180: return 6;break;
+		case 230: return 5;break;
+
+		case 330: return 4;break;
+		case 380: return 3;break;
+		case 430: return 2;break;
+		case 480: return 1;break;
+		case 530: return 0;break;
+	}
+
+	return 0;
+
+}
