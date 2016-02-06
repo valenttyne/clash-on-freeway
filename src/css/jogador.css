@@ -1,0 +1,9 @@
+#player {
+	width:16px;
+	height:16px;
+	position:absolute;
+	left:467px;
+	top:580px;
+	background-image:url(../imgs/player.png);
+
+}

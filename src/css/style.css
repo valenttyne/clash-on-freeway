@@ -39,25 +39,6 @@ body{
 	padding: 10px
 }
 
-#player {
-	width:16px;
-	height:16px;
-	position:absolute;
-	left:10px;
-	top:580px;
-	background-image:url(../imgs/player.png);
-
-}
-
-#en01 {
-	width:32px;
-	height:32px;
-	position:absolute;
-	left:70px;
-	top:200px;
-	background-image:url(../imgs/en01.png);
-	
-}
 .botao{
 	cursor: pointer;
 	background-color: green;
