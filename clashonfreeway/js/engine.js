@@ -18,10 +18,20 @@ var crash =document.getElementById("crash");
 var loss =document.getElementById("loss");
 var win =document.getElementById("win");
 var give =document.getElementById("give");
+var powerup =document.getElementById("powerup");
 
 musica.volume = 0.02;  
 musica.addEventListener("embed", function(){musica.currentTime = 0; musica.play();}, false);
 
+function powerupStop(){
+	powerup.pause();
+}
+
+function powerupPlay(){
+	powerup.play();	
+	powerup.currentTime = 0;
+	powerup.volume =0.2;
+}
 function musStop(){
 	musica.pause();
 }
@@ -57,6 +67,7 @@ function start(){
 
 	lossStop();
 	winStop();
+	powerupStop();
 	musPlay();
 
 	paraJogo = false;
@@ -251,8 +262,12 @@ function colidir(){
 
 		//se tiver colidido com o carro volta ao inicio
 		$("#player").css('left','467px').css('top','580px');
+
 		//diminiu as vidas
 		vida --;
+		//reinicia as musicas
+		powerupStop();
+		musPlay();
 
 		$("#vida"+(vida+1)).hide();
 
@@ -271,7 +286,9 @@ function colidir(){
 	var colidiCoin = ($("#player").collision($("#coins")));
 
 	if(colidiCoin.length > 0 ){
-		give.play();
+		//give.play();
+		musStop();
+		powerupPlay();
 		qtPontosCont -= 100;
 		$('#coins').remove();
 		velocidadeJogador = 5;
@@ -283,6 +300,7 @@ function colidir(){
 function fim(){
 	musStop();
 	lossPlay();
+	powerupStop();
 	qtPontosCont = qtPontosCont<0?0:qtPontosCont;
 	$("#qtPontos").html(qtPontosCont);
 	$("#fimPerda").show();
