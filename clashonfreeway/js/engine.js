@@ -1,5 +1,12 @@
-var vida = 3;
+//inicializando as variaveis do jogo
+var vida = 3; //mude aqui para alterar a quantidade de vidas que o usuario tem
 var paraJogo = false;
+var ajusteAnt = 0;
+var velocidadeJogador = 3 ; // mude aqui para mudar a velocidade inicial do jogador
+var qtCarroCont = 0;
+var qtPontosCont = 1000; //mude aqui para mudar os pontos iniciais do jogador
+
+//urls dos sprites do carros a serem usados no jogo
 var urlCarros = [];
 urlCarros[1] = '../clashonfreeway/imgs/audivm.png';
 urlCarros[2] = '../clashonfreeway/imgs/taxi.png';
@@ -7,12 +14,8 @@ urlCarros[3] = '../clashonfreeway/imgs/truck.png';
 urlCarros[4] = '../clashonfreeway/imgs/policia.png';
 urlCarros[5] = '../clashonfreeway/imgs/redcar.png';
 urlCarros[6] = '../clashonfreeway/imgs/ambulancia.png';
-var ajusteAnt = 0;
-var velocidadeJogador = 2 ;
-var qtCarroCont = 0;
-var qtPontosCont = 1000;
 
-
+//variaveis para manipular as musicas e sons do jogo
 var musica =document.getElementById("musica");
 var crash =document.getElementById("crash");
 var loss =document.getElementById("loss");
@@ -20,9 +23,10 @@ var win =document.getElementById("win");
 var give =document.getElementById("give");
 var powerup =document.getElementById("powerup");
 
-musica.volume = 0.02;  
+//inserindo um enveto na musica principal para ela ter um loop 
 musica.addEventListener("embed", function(){musica.currentTime = 0; musica.play();}, false);
 
+// funcoes para tratar as musicas do jogo
 function powerupStop(){
 	powerup.pause();
 }
@@ -59,20 +63,25 @@ function winPlay(){
 	win.currentTime = 0;
 	win.volume =0.2;
 }
+//----------------- fim das funcoes que tratam a musica
+
 
 //funcao chamada para iniciar o jogo
 function start(){
 	//oculta a tela de inicio
 	$('#inicio,#fimPerda,#fimVitoria').hide();
 
+	//pausando as possiveis musicas que podem estar executando
 	lossStop();
 	winStop();
 	powerupStop();
+	//start na musica padrao
 	musPlay();
-
+	//pre setando variaveis a serem utilizadas
 	paraJogo = false;
 	qtPontosCont = 1000;
 	qtCarroCont = 0;
+	//mostrando o icones das vidas
 	$(".vidaImg").show();
 	//adiciona a div fundo o jogador e os inimigos
 	$('#fundo').append("<div id='player' class='animaPlayer player'></div>");
@@ -82,7 +91,8 @@ function start(){
 	$('#fundo').append("<div id='coins' class='animaCoins'></div>");
 	$('#coins').css('left', (Math.floor((Math.random() * 700) + 1)) ).css('top', (Math.floor((Math.random() * 500) + 50)) );
 
-	//loop
+	//configurando os 02 loops do jogos
+	//a performance ficou melhor criando um loop separado para adicionar os carros
 	var jogo = {};
 	jogo.timer = setInterval(loop,30);
 	var jogo2 = {};
@@ -126,6 +136,7 @@ function start(){
 
 	}
 
+	//insere os carros no jogo
 	function addCarros(){
 
 		if(paraJogo){
@@ -173,6 +184,23 @@ function start(){
 		
 		if(paraJogo){
 			return false;
+		}
+
+
+		//verificando vitoria		
+		//918px
+		if(parseInt($("#player").position().top) <= 10){
+			musStop();
+			powerupStop();
+			winPlay();			
+			qtPontosCont = qtPontosCont<0?0:qtPontosCont;
+			$("#pontosVT").html('<h2>'+qtPontosCont + ' pontos</h2>');			
+			$("#fimVitoria").show();
+			$(".obstaculo, #player").remove();
+			$('#coins').remove();
+			paraJogo =true;
+			vida = 3;			
+			velocidadeJogador = 3;
 		}
 
 		$("#qtCarro").html(qtCarroCont);
@@ -271,7 +299,7 @@ function colidir(){
 
 		$("#vida"+(vida+1)).hide();
 
-		velocidadeJogador = 2;
+		velocidadeJogador = 3;
 		$('#coins').remove();
 		$('#fundo').append("<div id='coins' class='animaCoins'></div>");
 		$('#coins').css('left', (Math.floor((Math.random() * 700) + 1)) ).css('top', (Math.floor((Math.random() * 500) + 50)) );
@@ -282,21 +310,23 @@ function colidir(){
 			fim();
 		}
 	}
-
+	//verificando se o player colidiu com a modeda
 	var colidiCoin = ($("#player").collision($("#coins")));
-
+	//se tiver colidido com a moeda, aplicar beneficios e penalidades
 	if(colidiCoin.length > 0 ){
 		//give.play();
 		musStop();
 		powerupPlay();
 		qtPontosCont -= 100;
 		$('#coins').remove();
-		velocidadeJogador = 5;
+		velocidadeJogador = 6;
 	}
 
 
 }
-
+/**
+* @desc faz as acoes nescessario apos um derrota do jogador
+*/
 function fim(){
 	musStop();
 	lossPlay();
@@ -308,5 +338,5 @@ function fim(){
 	$('#coins').remove();
 	paraJogo =true;
 	vida = 3;			
-	velocidadeJogador = 2;
+	velocidadeJogador = 3;
 }

@@ -28,8 +28,18 @@
 		<div id="container">
 			<div id="fundo">
 				<div id="inicio" onclick="start();"> 
-					<h1>Clash on Freeway</h1>
-					<p>TODO</p>
+					<center><h1>Clash on Freeway</h1>
+					<p>Para jogar utilize as teclas W,A,S e D (cima,esquerda,baixo,direita).</p></center>
+					<p style="text-aling:justify">Regras: </br>
+						<small>* Para ganhar você precisa chegar na parte superior do jogo, ou seja, atravessar a rodovia. </br>
+						* Você tem 03 vidas, representadas pelos diamantes na parte inferior.</br>
+						* O jogo termina se você perder as 03 vidas.</br>
+						* A pontuação começa em 1000 e vai reduzindo com o passar do tempo, ou seja, quando mais tempo você demorar
+						para finalizar o jogo menor vai ser a sua pontuação.</br>
+						* Se um carro te atropelar, além de perder uma vida você perde 200 pontos.</br>
+						* A moeda do jogo (booster) te fará correr 2x mais rápido, porem diminuirá os seus pontos em 100.</br>
+						* Se os seus pontos chegarem em 0 você perderá o jogo.</br></small>
+					</p>
 					<p class='botao'>INICIAR</p>
 				</div> <!-- fim inicio-->
 				<div id="fimPerda" onclick="start();"> 
@@ -39,7 +49,8 @@
 				</div> <!-- fim inicio-->
 				<div id="fimVitoria" onclick="start();"> 
 					<h1>Clash on Freeway</h1>
-					<p>Você Ganhou</p>
+					<p>Você Ganhou!</p>
+					<div id="pontosVT"></div>
 					<p class='botaoM'>JOGAR NOVAMENTE</p>
 				</div> <!-- fim inicio-->
 				<div id="qtCarro">0</div>

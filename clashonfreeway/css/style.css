@@ -8,7 +8,11 @@ h1 {
 	font-size: 40px;
 	color: blue;
 }
-
+h2 {
+	font-family: Titulo;
+	font-size: 30px;
+	color: green;
+}
 body{
 	background-color: white;
 }
@@ -30,12 +34,12 @@ body{
 }
 #inicio{
 	width: 350px;
-	height: 200px;
+	height: 450px;
 	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 100px;
-	text-align: center;
+	/*text-align: center;*/
 	padding: 10px
 }
 #qtCarro{
@@ -107,7 +111,7 @@ body{
 }
 #fimVitoria{
 	width: 350px;
-	height: 200px;
+	height: 250px;
 	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
