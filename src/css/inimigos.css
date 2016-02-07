@@ -1,4 +1,6 @@
-
+/*
+configuracao da posicao dos carros na tela
+*/
 .en1 {
 	width:32px;
 	height:32px;
@@ -89,4 +91,43 @@
 	top:530px;
 	background-image:url(../imgs/en01.png);
 	
+}
+
+/*
+se tiver carro com tamanho diferente tem que fazer um classe nova par ele
+*/
+.animaCarro {
+	background-image:url(../imgs/en01.png);
+	animation:playCarro .5s steps(2) infinite;
+
+       -webkit-animation: playCarro .5s steps(2) infinite;
+       -moz-animation: playCarro .5s steps(2) infinite;
+       -ms-animation: playCarro .5s steps(2) infinite;
+       -o-animation: playCarro .5s steps(2) infinite;
+}
+
+@keyframes playCarro {
+	from {background-position:0px;}
+	to {background-position:-64px;}
+}
+
+
+@-webkit-keyframes playCarro {
+   from { background-position:0px; }
+     to { background-position: -64px; }
+}
+
+@-moz-keyframes playCarro {
+   from { background-position:0px; }
+     to { background-position: -64px; }
+}
+
+@-ms-keyframes playCarro {
+   from { background-position:0px; }
+     to { background-position: -64px; }
+}
+
+@-o-keyframes playCarro {
+   from { background-position:0px; }
+     to { background-position: -64px; }
 }
