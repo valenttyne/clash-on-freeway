@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clash on Freeway</title>
+
+		<meta name="keywords" content="html, my, little, softhouse, edson, pereira, santos, opensource, html, 5, jquery, games, jogos, freeway, clash, carro, jogo, game, free"/>
+		<meta name="robots" content="index, follow">
+		<meta name="description" content="Game feito em html 5, inspirado no Freeway do atari com código opensource" />
+		<meta name="author" content="Edson Pereira Santos">
+		<meta name="date" content="2016-02-07" scheme="YYYY-MM-DD">				
+		<link rel="stylesheet" type="text/css" href="css/inimigos.css">
+		<link rel="stylesheet" type="text/css" href="css/jogador.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+		<audio src="sounds/fundo.mp3" preload="auto" id="musica"></audio>
+		<audio src="sounds/crash.mp3" preload="auto" id="crash"></audio>
+		<audio src="sounds/win.mp3" preload="auto" id="win"></audio>
+		<audio src="sounds/loss.mp3" preload="auto" id="loss"></audio>
+		<audio src="sounds/give.mp3" preload="auto" id="give"></audio>
+
+	</head>
+	<body>
+
+		<!-- -->
+		<div id="container">
+			<div id="fundo">
+				<div id="inicio" onclick="start();"> 
+					<h1>Clash on Freeway</h1>
+					<p>TODO</p>
+					<p class='botao'>INICIAR</p>
+				</div> <!-- fim inicio-->
+				<div id="fimPerda" onclick="start();"> 
+					<h1>Clash on Freeway</h1>
+					<p>Você Perdeu</p>
+					<p class='botaoM'>JOGAR NOVAMENTE</p>
+				</div> <!-- fim inicio-->
+				<div id="fimVitoria" onclick="start();"> 
+					<h1>Clash on Freeway</h1>
+					<p>Você Ganhou</p>
+					<p class='botaoM'>JOGAR NOVAMENTE</p>
+				</div> <!-- fim inicio-->
+				<div id="qtCarro">0</div>
+				<div id="qtPontos">1000</div>
+				<div id="vida1" class="vidaImg" style="left:425px;	top:597px;"></div>
+				<div id="vida2" class="vidaImg" style="left:460px;	top:597px;"></div>
+				<div id="vida3" class="vidaImg" style="left:495px;	top:597px;"></div>
+
+			</div> <!-- fim fundo-->
+		</div><!-- fim container-->
+
+
+		<!--script -->
+		<!-- framework jquery-->
+		<script type="text/javascript" src="js/framework/jquery-1.11.1.min.js"></script>
+		<!-- framework jquery para detectar colisao-->
+		<script type="text/javascript" src="js/framework/jquery-collision.min.js"></script>
+		<!-- framework jquery para detectar toques para dispositivos moveis-->
+		<script type="text/javascript" src="js/framework/jquery.hammer.js"></script>
+		<!-- logica basica do jogo-->
+		<script type="text/javascript" src="js/engine.js"></script> 
+	</body>
+</html>

@@ -20,8 +20,10 @@ Opcionalmente estaremos colocando um modo multijogador, onde será possível emp
 
 #Informações
 
-As imagens dos personagens e carros foram coletas em sites com conteúdo free (http://unluckystudio.com/ e http://opengameart.org/)
+As imagens dos personagens e carros foram coletas em sites com conteúdo free (http://unluckystudio.com/ e http://opengameart.org/).
 
-O fundo foi feito por nós (o foco foi desenvolver o código)
+Os sons forme coletados na bliblioteca free do youtube (https://www.youtube.com/audiolibrary/music).
+
+O fundo foi feito por nós (o foco foi desenvolver o código).
 
 A versão atual do código já esta jogável. 
