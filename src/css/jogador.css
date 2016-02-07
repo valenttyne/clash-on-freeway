@@ -1,4 +1,4 @@
-#player {
+.player {
 	width:16px;
 	height:16px;
 	position:absolute;
@@ -10,6 +10,26 @@
 
 .animaPlayer {
 	background-image:url(../imgs/player.png);
+	animation:play .5s steps(2) infinite;
+
+       -webkit-animation: play .5s steps(2) infinite;
+       -moz-animation: play .5s steps(2) infinite;
+       -ms-animation: play .5s steps(2) infinite;
+       -o-animation: play .5s steps(2) infinite;
+}
+
+.playerEsq {
+	width:16px;
+	height:16px;
+	position:absolute;
+	left:467px;
+	top:580px;
+	background-image:url(../imgs/playerEsq.png);
+
+}
+
+.animaPlayerEsq {
+	background-image:url(../imgs/playerEsq.png);
 	animation:play .5s steps(2) infinite;
 
        -webkit-animation: play .5s steps(2) infinite;
