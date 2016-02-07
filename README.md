@@ -15,3 +15,8 @@ Atravessar uma avenida evitando ser atropelado.
 #Incrementos
 
 Opcionalmente estaremos colocando um modo multijogador, onde será possível empurrar os outros jogadores os atrapalhando.
+
+#Informações
+*As imagens dos personagens e carros foram coletas em sites com conteúdo free (http://unluckystudio.com/ e http://opengameart.org/)
+*O fundo foi feito por nós (o foco foi desenvolver o código)
+*A versão atual do código já esta jogável. 
