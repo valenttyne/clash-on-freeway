@@ -1,11 +1,11 @@
 //inicializando as variaveis do jogo
+var velocidade_padrao = 2;
 var vida = 3; //mude aqui para alterar a quantidade de vidas que o usuario tem
 var paraJogo = false;
 var ajusteAnt = 0;
-var velocidadeJogador = 3 ; // mude aqui para mudar a velocidade inicial do jogador
+var velocidadeJogador = velocidade_padrao ; // mude aqui para mudar a velocidade inicial do jogador
 var qtCarroCont = 0;
 var qtPontosCont = 1000; //mude aqui para mudar os pontos iniciais do jogador
-
 //urls dos sprites do carros a serem usados no jogo
 var urlCarros = [];
 urlCarros[1] = '../clashonfreeway/imgs/audivm.png';
@@ -200,7 +200,7 @@ function start(){
 			$('#coins').remove();
 			paraJogo =true;
 			vida = 3;			
-			velocidadeJogador = 3;
+			velocidadeJogador = velocidade_padrao;
 		}
 
 		$("#qtCarro").html(qtCarroCont);
@@ -299,7 +299,7 @@ function colidir(){
 
 		$("#vida"+(vida+1)).hide();
 
-		velocidadeJogador = 3;
+		velocidadeJogador = velocidade_padrao;
 		$('#coins').remove();
 		$('#fundo').append("<div id='coins' class='animaCoins'></div>");
 		$('#coins').css('left', (Math.floor((Math.random() * 700) + 1)) ).css('top', (Math.floor((Math.random() * 500) + 50)) );
@@ -319,7 +319,7 @@ function colidir(){
 		powerupPlay();
 		qtPontosCont -= 100;
 		$('#coins').remove();
-		velocidadeJogador = 6;
+		velocidadeJogador = velocidade_padrao*2;
 	}
 
 
@@ -338,5 +338,5 @@ function fim(){
 	$('#coins').remove();
 	paraJogo =true;
 	vida = 3;			
-	velocidadeJogador = 3;
+	velocidadeJogador = velocidade_padrao;
 }
